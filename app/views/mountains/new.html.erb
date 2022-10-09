@@ -1,0 +1,10 @@
+<%= form_with(url: "/mountains", method: :post, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+<%= %>
+  <%= form.label :handicap_accessible %>
+  <%= form.select(:handicap_accessible, options_for_select([true, false])) %>
+
+  <%= form.submit "Create Mountain" %>
+<% end %>

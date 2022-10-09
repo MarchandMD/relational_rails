@@ -9,9 +9,18 @@ RSpec.describe 'Mountains' do
       visit '/mountains'
       expect(page).to have_content(mountain_1.name)
       expect(page).to have_content(mountain_2.name)
-      save_and_open_page
+
     end
 
+    it 'has a link to create new mountain' do
+      visit '/mountains'
+
+      expect(page).to have_link("New Mountain")
+
+      click_link "New Mountain"
+
+      expect(current_path).to eq("/mountains/new")
+    end
 
   end
 end
