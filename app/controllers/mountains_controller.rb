@@ -15,4 +15,15 @@ class MountainsController < ApplicationController
 
     redirect_to "/mountains"
   end
+
+  def edit
+    @mountain = Mountain.find(params[:id])
+  end
+
+  def update
+    @mountain = Mountain.find(params[:id])
+    @mountain.update(name: params[:name])
+
+    redirect_to "/mountains/#{@mountain.id}"
+  end
 end

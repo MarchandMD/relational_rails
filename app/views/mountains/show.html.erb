@@ -5,3 +5,4 @@
 <p>record created at: <%= @mountain.created_at %></p>
 <p>record updated at: <%= @mountain.updated_at %></p>
 <%= link_to "#{@mountain.name} trails", "/mountains/#{@mountain.id}/trails" %>
+<%= link_to "Update Mountain", "/mountains/#{@mountain.id}/edit" %>
