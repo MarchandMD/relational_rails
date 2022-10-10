@@ -6,9 +6,9 @@ RSpec.describe 'Trails' do
     # When I visit '/child_table_name/:id'
     # Then I see the child with that id including the child's attributes:
     it 'shows the specific trail and its attributes' do
-      mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true)
-      trail_1 = Trail.create!(name: 'bunny run', trail_open: true, mountain_id: mountain_1.id)
-      trail_2 = Trail.create!(name: 'schoolmarm', trail_open: true, mountain_id: mountain_1.id)
+      mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true, elevation: 10000)
+      trail_1 = Trail.create!(name: 'bunny run', trail_open: true, mountain_id: mountain_1.id, elevation_drop: 50)
+      trail_2 = Trail.create!(name: 'schoolmarm', trail_open: true, mountain_id: mountain_1.id, elevation_drop: 275)
       visit "/trails/#{trail_1.id}"
 
       expect(page).to have_content(trail_1.name)
