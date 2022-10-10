@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/mountains/new', to: 'mountains#new'
   get '/mountains/:id', to: 'mountains#show'
   post '/mountains', to: 'mountains#create'
+  get '/mountains/:id/edit', to: 'mountains#edit'
+  patch '/mountains/:id', to: 'mountains#update'
+
   get '/trails', to: 'trails#index'
   get '/trails/:id', to: 'trails#show'
   get '/mountains/:mountain_id/trails', to: 'mountains_trails#index'
