@@ -28,7 +28,7 @@ RSpec.describe 'Mountains' do
       end
     end
 
-    it 'can create a new Artist' do
+    it 'can create a new Mountain' do
       visit "/mountains/new"
 
       fill_in "Name",	with: "Copper"

@@ -12,7 +12,7 @@ require 'rails_helper'
 
 RSpec.describe 'Mountains#edit' do
   before(:each) do
-    @mountain_1 = Mountain.create!(name: "Keystone", handicap_accessible: true)
+    @mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true, elevation: 5280)
   end
   it 'has a link on the mountains#show page' do
 
