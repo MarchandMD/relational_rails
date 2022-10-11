@@ -17,7 +17,7 @@
           <td><%= link_to mt.name, "/mountains/#{mt.id}" %></td>
           <td><%= mt.elevation %></td>
           <td><%= mt.created_at %></td>
-          <td>update link</td>
+          <td><%= link_to "Update #{mt.name}", "/mountains/#{mt.id}/edit" %></td>
         </tr>
       <% end %>
     </table>
