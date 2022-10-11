@@ -11,7 +11,7 @@ class MountainsController < ApplicationController
   end
 
   def create
-    Mountain.create!(name: params[:name], handicap_accessible: params[:handicap_accessible])
+    Mountain.create!(mountain_params)
 
     redirect_to "/mountains"
   end

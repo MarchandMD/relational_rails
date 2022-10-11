@@ -32,11 +32,12 @@ RSpec.describe 'Mountains' do
       visit "/mountains/new"
 
       fill_in "Name",	with: "Copper"
+      fill_in "Elevation", with: 6000
       click_button("Create Mountain")
 
       expect(current_path).to eq("/mountains")
       expect(page).to have_content("Copper")
-      save_and_open_page
+      expect(page).to have_content(6000)
     end
   end
 end

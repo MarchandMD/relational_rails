@@ -1,12 +1,22 @@
-<%= form_with(url: "/mountains", method: :post, local: true) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <br>
-  <%= form.label :handicap_accessible %>
-  <%= form.select(:handicap_accessible, options_for_select([true, false])) %>
-  <br>
-  <%= form.label :elevation %>
-  <%= form.number_field :elevation %>
-  <br>
-  <%= form.submit "Create Mountain" %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-6 border border-1 mt-3 p-3 d-flex justify-content-center">
+    <%= form_with(url: "/mountains", method: :post, local: true) do |form| %>
+      <div>
+        <%= form.label(:name, "Mountain Name") %>
+        <%= form.text_field :name %>
+      </div>
+      <br>
+      <div>
+        <%= form.label :handicap_accessible %>
+        <%= form.select(:handicap_accessible, options_for_select([true, false])) %>
+      </div>
+      <br>
+      <div>
+        <%= form.label :elevation, "Mountain Elevation" %>
+        <%= form.number_field :elevation %>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center"><%= form.submit "Create Mountain" %></div>
+    <% end %>
+  </div>
+</div>

@@ -9,10 +9,10 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-  <nav>
-     <%= link_to "All Trails", "/trails" %>
-     <%= link_to "All Mountains", "/mountains" %>
+  <body class="container">
+  <nav class="bg-dark p-2 d-flex justify-content-around">
+     <%= link_to "All Trails", "/trails", class: 'text-decoration-none, text-light' %>
+     <%= link_to "All Mountains", "/mountains", class: 'text-decoration-none, text-light' %>
   </nav>
     <%= yield %>
   </body>

@@ -1,6 +1,10 @@
-<p><%= @trail.name %></p>
-<p><%= @trail.trail_open %></p>
-<%= @trail.elevation_drop %>
-<div>
-  <%= link_to "Update #{@trail.name}", "/trails/#{@trail.id}/edit" %>
+<div class="row mt-3">
+  <div class="col d-flex flex-column align-items-center">
+    <h2><%= @trail.name %></h2>
+    <div class="p-2">Trail Open: <%= @trail.trail_open %></div>
+    <div class="p-2">Elevation drop: <%= @trail.elevation_drop %></div>
+    <div class="p-2">
+      <%= link_to "Update #{@trail.name}", "/trails/#{@trail.id}/edit" , class: "btn btn-secondary text-light" %>
+    </div>
+  </div>
 </div>

@@ -1,8 +1,43 @@
-<h1><%= @mountain.name %></h1>
-<% @mountain.trails.each do |trail|  %>
-  <p>Trail name: <%= trail.name %></p>
-  <p>Trail open: <%= trail.trail_open %></p>
-  <p>Trail elevation drop: <%= trail.elevation_drop %></p>
-<% end %>
-
-<%= link_to "Add Trail to #{@mountain.name}", "/mountains/#{@mountain.id}/trails/new" %>
+<div class="row mt-3">
+  <div class="col d-flex justify-content-center">
+    <h1>Trails for <%= @mountain.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    <button><%= link_to "Sort Trails", "/mountains/#{@mountain.id}/trails?sort=alphabetical" %></button>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6 p-4">
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Open</th>
+        <th>Elevation Drop</th>
+      </tr>
+      <% if @sorted_trails.nil? %>
+        <% @mountain.trails.each do |trail|  %>
+          <tr>
+            <td><%= trail.name %></td>
+            <td><%= trail.trail_open %></td>
+            <td><%= trail.elevation_drop %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <% @sorted_trails.each do |trail|  %>
+          <tr>
+            <td><%= trail.name %></td>
+            <td><%= trail.trail_open %></td>
+            <td><%= trail.elevation_drop %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    <button><%= link_to "Add Trail to #{@mountain.name}", "/mountains/#{@mountain.id}/trails/new" %></button>
+  </div>
+</div>

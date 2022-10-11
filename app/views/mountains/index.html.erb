@@ -1,15 +1,31 @@
-<h1>Mountains!</h1>
-<button><%= link_to "New Mountain", "/mountains/new" %></button>
-<table>
-  <tr>
-    <th>Mountain Name</th>
-    <th>Created at</th>
-  </tr>
-  <% @mountains.each do |mt| %>
-    <tr>
-      <td><%= link_to mt.name, "/mountains/#{mt.id}" %></td>
-      <td><%= mt.created_at %></td>
-      <td><%= mt.elevation %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="col d-flex justify-content-center p-4">
+    <h1>Mountains!</h1>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6">
+    <table class="table">
+      <tr>
+        <th>Mountain Name</th>
+        <th>elevation</th>
+        <th>Created at</th>
+        <th>update link</th>
+      </tr>
+      <% @mountains.each do |mt| %>
+        <tr>
+          <td><%= link_to mt.name, "/mountains/#{mt.id}" %></td>
+          <td><%= mt.elevation %></td>
+          <td><%= mt.created_at %></td>
+          <td>update link</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    <button><%= link_to "New Mountain", "/mountains/new" %></button>
+  </div>
+</div>
