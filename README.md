@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Additional things to do:
+  * Validate/Scrub - data being gathered

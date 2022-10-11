@@ -55,3 +55,5 @@ gem "launchy", "~> 2.5", :groups => [:development, :test]
 gem "shoulda-matchers", "~> 5.2", :groups => [:development, :test]
 gem "pry", "~> 0.14.1", :groups => [:development, :test]
 gem "simplecov", "~> 0.21.2", :groups => [:development, :test]
+
+gem "bootstrap", "~> 5.2"

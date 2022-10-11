@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/trails', to: 'trails#index'
   get '/trails/:id', to: 'trails#show'
-  get "/trails/:id/edit", to: 'trails#edit'
+  get '/trails/:id/edit', to: 'trails#edit'
   patch '/trails/:id', to: 'trails#update'
 
   get '/mountains/:mountain_id/trails', to: 'mountain_trails#index'
