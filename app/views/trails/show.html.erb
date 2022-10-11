@@ -1,2 +1,6 @@
 <p><%= @trail.name %></p>
 <p><%= @trail.trail_open %></p>
+<%= @trail.elevation_drop %>
+<div>
+  <%= link_to "Update #{@trail.name}", "/trails/#{@trail.id}/edit" %>
+</div>

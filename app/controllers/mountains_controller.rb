@@ -22,8 +22,14 @@ class MountainsController < ApplicationController
 
   def update
     @mountain = Mountain.find(params[:id])
-    @mountain.update(name: params[:name])
+    @mountain.update(mountain_params)
 
     redirect_to "/mountains/#{@mountain.id}"
+  end
+
+  private
+
+  def mountain_params
+    params.permit(:name, :handicap_accessible, :elevation)
   end
 end
