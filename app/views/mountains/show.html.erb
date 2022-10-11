@@ -2,6 +2,7 @@
 <p>Number of trails: <%= @mountain.trails.count  %></p>
 <p>Handicap accessible? <%= @mountain.handicap_accessible %></p>
 <p>Mountain id: <%= @mountain.id %></p>
+<p>Mountain Elevation: <%= @mountain.elevation %></p>
 <p>record created at: <%= @mountain.created_at %></p>
 <p>record updated at: <%= @mountain.updated_at %></p>
 <%= link_to "#{@mountain.name} trails", "/mountains/#{@mountain.id}/trails" %>

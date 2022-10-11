@@ -1,0 +1,8 @@
+<h1><%= @mountain.name %></h1>
+<% @mountain.trails.each do |trail|  %>
+  <p>Trail name: <%= trail.name %></p>
+  <p>Trail open: <%= trail.trail_open %></p>
+  <p>Trail elevation drop: <%= trail.elevation_drop %></p>
+<% end %>
+
+<%= link_to "Add Trail to #{@mountain.name}", "/mountains/#{@mountain.id}/trails/new" %>
