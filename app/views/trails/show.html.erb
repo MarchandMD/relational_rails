@@ -4,7 +4,8 @@
     <div class="p-2">Trail Open: <%= @trail.trail_open %></div>
     <div class="p-2">Elevation drop: <%= @trail.elevation_drop %></div>
     <div class="p-2">
-      <%= link_to "Update #{@trail.name}", "/trails/#{@trail.id}/edit" , class: "btn btn-secondary text-light" %>
+      <%= link_to "Delete #{@trail.name}", "/trails/#{@trail.id}", method: :delete, class: 'btn btn-danger' %>
+      <%= link_to "Update #{@trail.name}", "/trails/#{@trail.id}/edit" , class: "btn btn-warning text-light" %>
     </div>
   </div>
 </div>

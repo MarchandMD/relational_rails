@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/trails/:id', to: 'trails#show'
   get '/trails/:id/edit', to: 'trails#edit'
   patch '/trails/:id', to: 'trails#update'
+  delete '/trails/:id', to: 'trails#destroy'
 
   get '/mountains/:mountain_id/trails', to: 'mountain_trails#index'
   get '/mountains/:mountain_id/trails/new', to: 'mountain_trails#new'
