@@ -16,6 +16,12 @@ RSpec.describe 'Mountains' do
       expect(page).to_not have_content(@trail_3.name)
     end
 
+    it 'shows all the trails attributes' do
+      visit '/trails'
+      expect(page).to have_content(@trail_1.trail_open)
+      expect(page).to have_content(@trail_1.elevation_drop)
+    end
+
     it 'has links to update the trail' do
       visit '/trails'
       expect(page).to have_content("Update #{@trail_1.name}")

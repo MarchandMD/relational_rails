@@ -10,13 +10,14 @@
         <th>Mountain Name</th>
         <th>elevation</th>
         <th>Created at</th>
-        <th>update link</th>
+        <th> </th>
+        <th> </th>
       </tr>
       <% @mountains.each do |mt| %>
         <tr>
           <td><%= link_to mt.name, "/mountains/#{mt.id}" %></td>
           <td><%= mt.elevation %></td>
-          <td><%= mt.created_at %></td>
+          <td><%= mt.created_at.strftime("%m\/%d\/%Y %I:%M:%S") %></td>
           <td><%= link_to "Update #{mt.name}", "/mountains/#{mt.id}/edit" %></td>
           <td><%= link_to "Delete #{mt.name}", "/mountains/#{mt.id}", method: :delete %></td>
         </tr>
@@ -27,6 +28,6 @@
 
 <div class="row">
   <div class="col d-flex justify-content-center">
-    <button><%= link_to "New Mountain", "/mountains/new" %></button>
+    <%= link_to "New Mountain", "/mountains/new", class: 'btn btn-primary' %>
   </div>
 </div>
