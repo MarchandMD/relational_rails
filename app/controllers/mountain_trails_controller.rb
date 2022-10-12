@@ -20,6 +20,13 @@ class MountainTrailsController < ApplicationController
     redirect_to "/mountains/#{@mountain.id}/trails"
   end
 
+  def destroy
+    trail = Trail.find(params[:trail_id])
+    trail.destroy
+
+    redirect_to "/mountains/#{params[:mountain_id]}/trails"
+  end
+
   private
 
   def mountain_trails_params

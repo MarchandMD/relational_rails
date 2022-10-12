@@ -13,6 +13,7 @@
         <tr>
           <td class="text-center"><%= link_to trail.name, "/trails/#{trail.id}", class: "text-decoration-none" %></td>
           <td><%= link_to "Update #{trail.name}", "/trails/#{trail.id}/edit" %></td>
+          <td><%= link_to "Delete #{trail.name}", "/trails/#{trail.id}", method: :delete %></td>
         </tr>
       <% end %>
     </table>

@@ -22,6 +22,7 @@
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
             <td><%= trail.elevation_drop %></td>
+            <td><%= link_to "Delete #{trail.name}", "/mountains/#{@mountain.id}/trails/#{trail.id}", method: :delete %></td>
           </tr>
         <% end %>
       <% elsif !@sorted_trails.nil? %>
@@ -30,6 +31,7 @@
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
             <td><%= trail.elevation_drop %></td>
+            <td><%= link_to "Delete #{trail.name}", "/mountains/#{@mountain.id}/trails/#{trail.id}", method: :delete %></td>
           </tr>
         <% end %>
         <% elsif !@filtered_trails.nil? %>
@@ -38,6 +40,7 @@
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
             <td><%= trail.elevation_drop %></td>
+            <td><%= link_to "Delete #{trail.name}", "/mountains/#{@mountain.id}/trails/#{trail.id}", method: :delete %></td>
           </tr>
         <% end %>
       <% end %>
@@ -55,7 +58,7 @@
     <%= form.label :threshold, "Elevation Drop" %>
     <%= form.number_field :threshold %>
 
-    <%= form.submit "Only return records with more than #{} feet of elevation drop" %>
+    <%= form.submit "Only return records with more than number feet of elevation drop" %>
     <% end %>
   </div>
 </div>

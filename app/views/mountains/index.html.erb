@@ -18,6 +18,7 @@
           <td><%= mt.elevation %></td>
           <td><%= mt.created_at %></td>
           <td><%= link_to "Update #{mt.name}", "/mountains/#{mt.id}/edit" %></td>
+          <td><%= link_to "Delete #{mt.name}", "/mountains/#{mt.id}", method: :delete %></td>
         </tr>
       <% end %>
     </table>
