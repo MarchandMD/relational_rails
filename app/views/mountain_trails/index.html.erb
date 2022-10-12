@@ -5,16 +5,18 @@
 </div>
 <div class="row">
   <div class="col d-flex justify-content-center">
-    <button><%= link_to "Sort Trails", "/mountains/#{@mountain.id}/trails?sort=alphabetical" %></button>
+    <%= link_to "Sort Trails", "/mountains/#{@mountain.id}/trails?sort=alphabetical", class: 'btn btn-dark' %>
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-6 p-4">
+  <div class="col-12 p-4">
     <table class="table table-striped">
       <tr>
         <th>Name</th>
         <th>Open</th>
         <th>Elevation Drop</th>
+        <th> </th>
+        <th> </th>
       </tr>
       <% if @sorted_trails.nil? && @filtered_trails.nil? %>
         <% @mountain.trails.each do |trail|  %>
@@ -22,6 +24,7 @@
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
             <td><%= trail.elevation_drop %></td>
+            <td><%= link_to "Edit #{trail.name}", "/trails/#{trail.id}/edit" %></td>
             <td><%= link_to "Delete #{trail.name}", "/mountains/#{@mountain.id}/trails/#{trail.id}", method: :delete %></td>
           </tr>
         <% end %>
@@ -31,6 +34,7 @@
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
             <td><%= trail.elevation_drop %></td>
+            <td><%= link_to "Edit #{trail.name}", "/trails/#{trail.id}/edit" %></td>
             <td><%= link_to "Delete #{trail.name}", "/mountains/#{@mountain.id}/trails/#{trail.id}", method: :delete %></td>
           </tr>
         <% end %>
@@ -40,6 +44,7 @@
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
             <td><%= trail.elevation_drop %></td>
+            <td><%= link_to "Edit #{trail.name}", "/trails/#{trail.id}/edit" %></td>
             <td><%= link_to "Delete #{trail.name}", "/mountains/#{@mountain.id}/trails/#{trail.id}", method: :delete %></td>
           </tr>
         <% end %>
@@ -49,16 +54,16 @@
 </div>
 <div class="row">
   <div class="col d-flex justify-content-center">
-    <button><%= link_to "Add Trail to #{@mountain.name}", "/mountains/#{@mountain.id}/trails/new" %></button>
+    <%= link_to "Add Trail to #{@mountain.name}", "/mountains/#{@mountain.id}/trails/new", class: 'btn btn-primary' %>
   </div>
 </div>
-<div class="row">
-  <div class="col">
+<div class="row mt-3 justify-content-center">
+  <div class="col-6">
     <%= form_with(url: "/mountains/#{@mountain.id}/trails", method: :get, local: true) do |form|  %>
     <%= form.label :threshold, "Elevation Drop" %>
     <%= form.number_field :threshold %>
 
-    <%= form.submit "Only return records with more than number feet of elevation drop" %>
+    <div class="mt-3"><%= form.submit "Only return records with more than number feet of elevation drop" %></div>
     <% end %>
   </div>
 </div>

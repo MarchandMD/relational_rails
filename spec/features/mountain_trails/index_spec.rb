@@ -8,9 +8,16 @@ require 'rails_helper'
 RSpec.describe 'Mountain Trails Index' do
   before(:each) do
     @mountain = Mountain.create!(name: 'Buttermilk', handicap_accessible: true, elevation: 5280)
-    @mountain.trails.create!(name: 'Zephyr Run', trail_open: true, elevation_drop: 300)
+    @trail_1 = @mountain.trails.create!(name: 'Zephyr Run', trail_open: true, elevation_drop: 300)
     @mountain.trails.create!(name: 'Quicksilver', trail_open: true, elevation_drop: 200)
     @mountain.trails.create!(name: 'Bunny Run', trail_open: true, elevation_drop: 50)
+  end
+
+  it 'has a link to edit the trail' do
+    visit "/mountains/#{@mountain.id}/trails"
+    expect(page).to have_content("Edit #{@trail_1.name}")
+    click_link("Edit #{@trail_1.name}")
+    expect(current_path).to eq("/mountains/#{@mountain.id}/trails/#{@trail_1.id}/edit")
   end
 
   it 'has a link to sort trails alphabetically' do
@@ -23,6 +30,6 @@ RSpec.describe 'Mountain Trails Index' do
     fill_in 'threshold',	with: 199
     click_button('Only return records with more than number feet of elevation drop')
     expect(current_path).to eq("/mountains/#{@mountain.id}/trails")
-    expect(page).not_to have_content("Bunny Run")
+    expect(page).not_to have_content('Bunny Run')
   end
 end
