@@ -17,7 +17,7 @@ RSpec.describe 'Mountain Trails Index' do
     visit "/mountains/#{@mountain.id}/trails"
     expect(page).to have_content("Edit #{@trail_1.name}")
     click_link("Edit #{@trail_1.name}")
-    expect(current_path).to eq("/mountains/#{@mountain.id}/trails/#{@trail_1.id}/edit")
+    expect(current_path).to eq("/trails/#{@trail_1.id}/edit")
   end
 
   it 'has a link to sort trails alphabetically' do
