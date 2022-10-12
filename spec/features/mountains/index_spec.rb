@@ -4,7 +4,6 @@ RSpec.describe 'Mountains' do
   before(:each) do
     @mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true, elevation: 5280)
     @mountain_2 = Mountain.create!(name: 'breck peak 1', handicap_accessible: true, elevation: 5280)
-
   end
 
   describe 'Mountains#index view' do
@@ -12,17 +11,16 @@ RSpec.describe 'Mountains' do
       visit '/mountains'
       expect(page).to have_content(@mountain_1.name)
       expect(page).to have_content(@mountain_2.name)
-
     end
 
     it 'has a link to create new mountain' do
       visit '/mountains'
 
-      expect(page).to have_link("New Mountain")
+      expect(page).to have_link('New Mountain')
 
-      click_link "New Mountain"
+      click_link 'New Mountain'
 
-      expect(current_path).to eq("/mountains/new")
+      expect(current_path).to eq('/mountains/new')
     end
 
     it 'has a link to update the mountain' do
@@ -32,6 +30,11 @@ RSpec.describe 'Mountains' do
       expect(current_path).to eq("/mountains/#{@mountain_1.id}/edit")
     end
 
-
+    it 'has a link to delete the mountain' do
+      visit '/mountains'
+      expect(page).to have_link("Delete #{@mountain_1.name}")
+      click_link("Delete #{@mountain_1.name}")
+      expect(page).not_to have_content("#{@mountain_1.name}")
+    end
   end
 end
