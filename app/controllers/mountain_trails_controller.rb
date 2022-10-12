@@ -4,6 +4,8 @@ class MountainTrailsController < ApplicationController
     @mountain = Mountain.find(params[:mountain_id])
     if mountain_trails_params.include?(:sort)
       @sorted_trails = @mountain.trails.order(:name)
+    elsif mountain_trails_params.include?(:threshold)
+      @filtered_trails = @mountain.trails.where("elevation_drop > #{params[:threshold]}")
     end
   end
 
@@ -21,6 +23,6 @@ class MountainTrailsController < ApplicationController
   private
 
   def mountain_trails_params
-    params.permit(:name, :trail_open, :elevation_drop, :sort)
+    params.permit(:name, :trail_open, :elevation_drop, :sort, :threshold)
   end
 end

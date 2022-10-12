@@ -16,7 +16,7 @@
         <th>Open</th>
         <th>Elevation Drop</th>
       </tr>
-      <% if @sorted_trails.nil? %>
+      <% if @sorted_trails.nil? && @filtered_trails.nil? %>
         <% @mountain.trails.each do |trail|  %>
           <tr>
             <td><%= trail.name %></td>
@@ -24,8 +24,16 @@
             <td><%= trail.elevation_drop %></td>
           </tr>
         <% end %>
-      <% else %>
+      <% elsif !@sorted_trails.nil? %>
         <% @sorted_trails.each do |trail|  %>
+          <tr>
+            <td><%= trail.name %></td>
+            <td><%= trail.trail_open %></td>
+            <td><%= trail.elevation_drop %></td>
+          </tr>
+        <% end %>
+        <% elsif !@filtered_trails.nil? %>
+        <% @filtered_trails.each do |trail|  %>
           <tr>
             <td><%= trail.name %></td>
             <td><%= trail.trail_open %></td>
@@ -39,5 +47,15 @@
 <div class="row">
   <div class="col d-flex justify-content-center">
     <button><%= link_to "Add Trail to #{@mountain.name}", "/mountains/#{@mountain.id}/trails/new" %></button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <%= form_with(url: "/mountains/#{@mountain.id}/trails", method: :get, local: true) do |form|  %>
+    <%= form.label :threshold, "Elevation Drop" %>
+    <%= form.number_field :threshold %>
+
+    <%= form.submit "Only return records with more than #{} feet of elevation drop" %>
+    <% end %>
   </div>
 </div>
