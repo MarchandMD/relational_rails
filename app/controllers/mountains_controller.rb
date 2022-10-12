@@ -7,13 +7,12 @@ class MountainsController < ApplicationController
     @mountain = Mountain.find(params[:id])
   end
 
-  def new
-  end
+  def new; end
 
   def create
     Mountain.create!(mountain_params)
 
-    redirect_to "/mountains"
+    redirect_to '/mountains'
   end
 
   def edit
@@ -25,6 +24,12 @@ class MountainsController < ApplicationController
     @mountain.update(mountain_params)
 
     redirect_to "/mountains/#{@mountain.id}"
+  end
+
+  def destroy
+    mountain = Mountain.find(params[:id])
+    mountain.destroy
+    redirect_to '/mountains'
   end
 
   private
