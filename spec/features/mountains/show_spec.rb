@@ -37,7 +37,6 @@ RSpec.describe 'Mountains' do
       visit "/mountains/#{mountain_2.id}"
 
       expect(page).to have_content("Number of trails: #{mountain_2.trails.count}")
-      save_and_open_page
     end
   end
 end

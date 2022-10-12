@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/mountains', to: 'mountains#create'
   get '/mountains/:id/edit', to: 'mountains#edit'
   patch '/mountains/:id', to: 'mountains#update'
+  delete '/mountains/:id', to: 'mountains#destroy'
 
   get '/trails', to: 'trails#index'
   get '/trails/:id', to: 'trails#show'
