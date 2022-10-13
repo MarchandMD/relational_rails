@@ -1,6 +1,10 @@
 class TrailsController < ApplicationController
   def index
-    @trails = Trail.where("trail_open = true")
+    if trail_params.include?(:search) && params[:search] != ""
+      @trails = Trail.where("name like ?", "%#{ params[:search]}%")
+    else
+      @trails = Trail.where("trail_open = true")
+    end
   end
 
   def show
@@ -25,6 +29,6 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.permit(:name, :trail_open, :elevation_drop)
+    params.permit(:name, :trail_open, :elevation_drop, :search)
   end
 end
