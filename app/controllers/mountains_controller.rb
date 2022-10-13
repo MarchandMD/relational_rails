@@ -1,6 +1,12 @@
 class MountainsController < ApplicationController
   def index
-    @mountains = Mountain.order(created_at: :desc)
+    if mountain_params.include?(:sort)
+      @mountains = Mountain.all.sort_by { |mountain| mountain.trails.count }.reverse
+    elsif mountain_params.include?(:search) && params[:search] != ""
+      @mountains = Mountain.where("name like ?", "%#{ params[:search]}%")
+    else
+      @mountains = Mountain.order(created_at: :desc)
+    end
   end
 
   def show
@@ -35,6 +41,6 @@ class MountainsController < ApplicationController
   private
 
   def mountain_params
-    params.permit(:name, :handicap_accessible, :elevation)
+    params.permit(:name, :handicap_accessible, :elevation, :sort, :search)
   end
 end

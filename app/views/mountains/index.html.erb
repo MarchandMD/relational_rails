@@ -1,6 +1,11 @@
 <div class="row">
-  <div class="col d-flex justify-content-center p-4">
+  <div class="col d-flex flex-column align-items-center p-4">
     <h1>Mountains!</h1>
+    <%= form_tag("/mountains", method: :get) do %>
+      <p> Search for a mountain </p>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+    <% end %>
   </div>
 </div>
 <div class="row justify-content-center">
@@ -9,6 +14,7 @@
       <tr>
         <th>Mountain Name</th>
         <th>elevation</th>
+        <th><%= link_to '# of Trails', sort: 'trail_countz' %></th>
         <th>Created at</th>
         <th> </th>
         <th> </th>
@@ -17,6 +23,7 @@
         <tr>
           <td><%= link_to mt.name, "/mountains/#{mt.id}" %></td>
           <td><%= mt.elevation %></td>
+          <td> <%= mt.trails.count %> </td>
           <td><%= mt.created_at.strftime("%m\/%d\/%Y %I:%M:%S") %></td>
           <td><%= link_to "Update #{mt.name}", "/mountains/#{mt.id}/edit" %></td>
           <td><%= link_to "Delete #{mt.name}", "/mountains/#{mt.id}", method: :delete %></td>
@@ -25,7 +32,6 @@
     </table>
   </div>
 </div>
-
 <div class="row">
   <div class="col d-flex justify-content-center">
     <%= link_to "New Mountain", "/mountains/new", class: 'btn btn-primary' %>

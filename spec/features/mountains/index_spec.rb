@@ -36,5 +36,13 @@ RSpec.describe 'Mountains' do
       click_link("Delete #{@mountain_1.name}")
       expect(page).not_to have_content("#{@mountain_1.name}")
     end
+
+    it 'can sort mountains by number of trails' do
+      visit "/mountains"
+      expect(page).to have_link("Sort Trails")
+      click_link("Sort Trails")
+      expect(current_path).to eq("/mountains")
+      expect(page).to have_content("# of Trails")
+    end
   end
 end
