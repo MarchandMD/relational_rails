@@ -4,4 +4,8 @@ class Mountain < ApplicationRecord
   def self.partial_match(input = '')
     where('name like ?', "%#{input}%")
   end
+
+  def self.exact_match(input = '')
+    where(name: input)
+  end
 end

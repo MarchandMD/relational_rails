@@ -2,8 +2,12 @@ class MountainsController < ApplicationController
   def index
     if mountain_params.include?(:sort)
       @mountains = Mountain.all.sort_by { |mountain| mountain.trails.count }.reverse
-    elsif mountain_params.include?(:search) && params[:search] != ""
-      @mountains = Mountain.partial_match
+    elsif mountain_params.include?(:search) && params[:search] != ''
+      if Mountain.pluck(:name).include?(params[:search])
+        @mountains = Mountain.exact_match(params[:search])
+      else
+        @mountains = Mountain.partial_match(params[:search])
+      end
     else
       @mountains = Mountain.order(created_at: :desc)
     end
