@@ -57,3 +57,6 @@ gem "pry", "~> 0.14.1", :groups => [:development, :test]
 gem "simplecov", "~> 0.21.2", :groups => [:development, :test]
 
 gem "bootstrap", "~> 5.2"
+
+
+gem "pry-rails", "~> 0.3.9", :group => :development

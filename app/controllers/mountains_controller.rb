@@ -3,7 +3,7 @@ class MountainsController < ApplicationController
     if mountain_params.include?(:sort)
       @mountains = Mountain.all.sort_by { |mountain| mountain.trails.count }.reverse
     elsif mountain_params.include?(:search) && params[:search] != ""
-      @mountains = Mountain.where("name like ?", "%#{ params[:search]}%")
+      @mountains = Mountain.partial_match
     else
       @mountains = Mountain.order(created_at: :desc)
     end
