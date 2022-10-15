@@ -13,5 +13,15 @@ RSpec.describe Mountain, type: :model do
         expect(search_results[0]).to eq(@mountain_1)
       end
     end
+
+    describe '#exact_match' do
+      it 'matches an exact match' do
+        @mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true, elevation: 5280)
+        search_results = Mountain.exact_match('keystone')
+        expect(search_results[0]).to eq(@mountain_1)
+      end
+    end
+
   end
+
 end
