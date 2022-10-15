@@ -39,10 +39,15 @@ RSpec.describe 'Mountains' do
 
     it 'can sort mountains by number of trails' do
       visit "/mountains"
-      expect(page).to have_link("Sort Trails")
-      click_link("Sort Trails")
+      expect(page).to have_link("# of Trails")
+      click_link("# of Trails")
       expect(current_path).to eq("/mountains")
       expect(page).to have_content("# of Trails")
+    end
+
+    it 'has a link to all mountains' do
+      visit "/mountains"
+      expect(page).to have_link('All Mountains')
     end
   end
 end

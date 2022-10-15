@@ -1,6 +1,7 @@
 class Mountain < ApplicationRecord
   has_many :trails, dependent: :destroy
 
-  before_create { |mountain| mountain.name.capitalize }
-
+  def self.partial_match(input = '')
+    where('name like ?', "%#{input}%")
+  end
 end
