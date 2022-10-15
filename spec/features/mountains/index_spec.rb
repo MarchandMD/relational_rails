@@ -49,5 +49,25 @@ RSpec.describe 'Mountains' do
       visit "/mountains"
       expect(page).to have_link('All Mountains')
     end
+
+    it 'can match an exact match' do
+      visit '/mountains'
+      expect(page).to have_content('Search')
+      fill_in 'search',	with: 'keystone'
+      click_button "Search"
+      expect(page).to have_content('keystone')
+      expect(page).not_to have_content('breck peak 1')
+    end
+
+    it 'can match a partial match' do
+      visit '/mountains'
+      expect(page).to have_content('Search')
+      fill_in 'search',	with: 'keys'
+      click_button "Search"
+      expect(page).to have_content('keystone')
+      expect(page).not_to have_content('breck peak 1')
+    end
+
+
   end
 end
