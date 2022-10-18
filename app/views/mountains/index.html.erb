@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col d-flex flex-column align-items-center p-4">
-    <h1>Mountains!</h1>
+'  <div class="col d-flex flex-column align-items-center p-4">
+'    <h1>Mountains!</h1>
     <%= form_tag("/mountains", method: :get) do %>
       <p> Search for a mountain </p>
       <%= text_field_tag(:search, params[:search]) %>
@@ -23,7 +23,7 @@
         <tr>
           <td><%= link_to mt.name, "/mountains/#{mt.id}" %></td>
           <td><%= mt.elevation %></td>
-          <td> <%= mt.trails.count %> </td>
+          <td> <%= mt.trail_count %> </td>
           <td><%= mt.created_at.strftime("%m\/%d\/%Y %I:%M:%S") %></td>
           <td><%= link_to "Update #{mt.name}", "/mountains/#{mt.id}/edit" %></td>
           <td><%= link_to "Delete #{mt.name}", "/mountains/#{mt.id}", method: :delete %></td>
