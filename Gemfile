@@ -60,3 +60,5 @@ gem "bootstrap", "~> 5.2"
 
 
 gem "pry-rails", "~> 0.3.9", :group => :development
+
+
