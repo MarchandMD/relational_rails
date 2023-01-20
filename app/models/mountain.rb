@@ -1,4 +1,8 @@
 class Mountain < ApplicationRecord
+  validates_presence_of(:name, uniqueness: true)
+  validates_numericality_of(:elevation)
+  validates :name, length: { maximum: 20 }
+
   has_many :trails, dependent: :destroy
 
 

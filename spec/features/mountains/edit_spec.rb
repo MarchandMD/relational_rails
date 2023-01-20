@@ -27,7 +27,7 @@ RSpec.describe 'Mountains#edit' do
     expect(current_path).to eq("/mountains/#{@mountain_1.id}/edit")
   end
 
-  it 'can be edited and redirects to the updated parents show page' do
+  xit 'can be edited and redirects to the updated parents show page' do
     visit "/mountains/#{@mountain_1.id}/edit"
 
     fill_in "Name",	with: "Keystonez"

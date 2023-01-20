@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   get '/mountains/:mountain_id/trails/new', to: 'mountain_trails#new'
   post '/mountains/:mountain_id/trails', to: 'mountain_trails#create'
   delete '/mountains/:mountain_id/trails/:trail_id', to: 'mountain_trails#destroy'
+
+  resources :mountains do
+    resources :trails
+  end
 end

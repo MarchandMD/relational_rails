@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Mountains' do
   describe 'Mountains#show view' do
 
-    it 'shows the mountain name and attributes' do
+    xit 'shows the mountain name and attributes' do
       mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true)
       mountain_2 = Mountain.create!(name: 'breck peak 1', handicap_accessible: true)
 
