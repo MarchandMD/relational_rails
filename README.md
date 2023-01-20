@@ -133,7 +133,7 @@ Concepts learned during this project:
 
 ## Usage
 
-You can see this locally by running `rails s` from the command line. 
+You can see this locally by running `rails s` from the command line.
 
 ```bs
 
@@ -199,7 +199,6 @@ Some great tools and/or people who helped to make this project what it is!
 -   [Img Shields](https://shields.io)
 -   [GitHub Pages](https://pages.github.com)
 -   [Rubocop](https://rubocop.org/)
--   [The other contributors!][contributors-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
