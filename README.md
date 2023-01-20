@@ -135,10 +135,6 @@ Concepts learned during this project:
 
 You can see this locally by running `rails s` from the command line.
 
-```bs
-
-```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,7 +143,8 @@ You can see this locally by running `rails s` from the command line.
 ## Roadmap
 
 - README
-- [ ] Front-end interface? Command line performance?
+- [ ] Deploy to Heroku student account
+- [ ] Add to marchandmd.github.io
 
 See the [open issues](https://github.com/marchandmd/relational_rails/issues) for a full list of proposed features (and known issues).
 
