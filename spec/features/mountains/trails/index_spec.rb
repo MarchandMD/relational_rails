@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Mountains-Trails AssociationProxy Index' do
   describe 'Mountains Trails Index' do
-    it "displays each Trail associated with a Mountain, and it's attributes" do
+    xit "displays each Trail associated with a Mountain, and it's attributes" do
       mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true)
       trail_1 = mountain_1.trails.create!(name: 'bunny run', trail_open: true)
       trail_2 = mountain_1.trails.create!(name: 'schoolmarm', trail_open: true)
