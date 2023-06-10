@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Trails' do
   describe 'Trails#show' do
-    #     As a visitor
-    # When I visit '/child_table_name/:id'
-    # Then I see the child with that id including the child's attributes:
     it 'shows the specific trail and its attributes' do
       mountain_1 = Mountain.create!(name: 'keystone', handicap_accessible: true, elevation: 10000)
       trail_1 = Trail.create!(name: 'bunny run', trail_open: true, mountain_id: mountain_1.id, elevation_drop: 50)
